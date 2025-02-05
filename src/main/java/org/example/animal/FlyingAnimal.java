@@ -1,7 +1,7 @@
 package org.example.animal;
 
 public class FlyingAnimal extends Animal{
-    public FlyingAnimal(String name, String onomatopoeia, String species) {
+    public FlyingAnimal(String onomatopoeia, String species) {
         super( onomatopoeia, AnimalType.VOLADOR, species);
     }
     @Override
