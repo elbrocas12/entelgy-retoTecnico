@@ -17,20 +17,33 @@ public class Main {
             System.err.println("Debe proporcionar el nombre del archivo JSON como argumento.");
             return;
         }
-        String fileName = args[0];
+        String arg = args[0];
+        System.out.println(arg);
+        if(arg.endsWith(".json")){
+            System.setProperty("animalServiceBean","json");
+        }
+        else{
+            System.setProperty("animalServiceBean","text");
+        }
+        System.out.println(System.getProperty("animalServiceBean"));
         AnnotationConfigApplicationContext context=new AnnotationConfigApplicationContext(AppConfig.class);
         IAnimalService animalService=context.getBean(IAnimalService.class);
-        try(InputStream inputStream=Main.class.getClassLoader().getResourceAsStream(fileName)){
-            if (inputStream == null) {
-                System.err.println("No se encontró el archivo " + fileName + " en resources.");
-                return;
-            }
-            List<Map<String, String>> animalInfo = animalService.getAnimalsFromJson(inputStream);
-            Map<AnimalType, List<Animal>> groupedAnimals = animalService.processAnimals(animalInfo);
-            animalService.showGroupedAnimals(groupedAnimals);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+        List<Map<String, String>> animalInfo = animalService.getAnimalsFromSource(arg);
+        Map<AnimalType, List<Animal>> groupedAnimals = animalService.processAnimals(animalInfo);
+        animalService.showGroupedAnimals(groupedAnimals);
+        //AnnotationConfigApplicationContext context=new AnnotationConfigApplicationContext(AppConfig.class);
+        //IAnimalService animalService=context.getBean(IAnimalService.class);
+        //try(InputStream inputStream=Main.class.getClassLoader().getResourceAsStream(fileName)){
+        //    if (inputStream == null) {
+        //        System.err.println("No se encontró el archivo " + fileName + " en resources.");
+        //        return;
+        //    }
+        //    List<Map<String, String>> animalInfo = animalService.getAnimalsFromJson(inputStream);
+        //    Map<AnimalType, List<Animal>> groupedAnimals = animalService.processAnimals(animalInfo);
+        //    animalService.showGroupedAnimals(groupedAnimals);
+        //} catch (Exception e) {
+        //    throw new RuntimeException(e);
+        //}
 
     }
 

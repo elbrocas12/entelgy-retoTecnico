@@ -6,6 +6,7 @@ import org.example.animal.domain.Animal;
 import org.example.animal.domain.AnimalType;
 import org.example.animal.factory.AnimalFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 import java.io.InputStream;
 import java.util.List;
@@ -14,10 +15,10 @@ import java.util.stream.Collectors;
 
 public class AnimalServiceImpl implements IAnimalService{
 
-    private final ObjectMapper objectMapper;
+    private final IAnimalReader animalReader;
     @Autowired
-    public AnimalServiceImpl(ObjectMapper objectMapper) {
-        this.objectMapper = objectMapper;
+    public AnimalServiceImpl(@Qualifier("#{systemProperties['animalServiceBean']}")IAnimalReader animalReader) {
+        this.animalReader = animalReader;
     }
     @Override
     public Map<AnimalType, List<Animal>> processAnimals(List<Map<String, String>> animalInfo) {
@@ -37,16 +38,8 @@ public class AnimalServiceImpl implements IAnimalService{
     }
 
     @Override
-    public List<Map<String, String>> getAnimalsFromJson(InputStream inputStream) {
-        try{
-            List<Map<String,String>>animalInfo=objectMapper.readValue(
-                    inputStream,
-                    new TypeReference<>() {});
-            return animalInfo;
-        } catch (Exception e) {
-            System.err.println("Error al leer el archivo JSON: " + e.getMessage());
-        }
-        return List.of();
+    public List<Map<String, String>> getAnimalsFromSource(String input) {
+        return this.animalReader.readAnimals(input);
     }
 
     @Override

@@ -32,8 +32,7 @@ public class AnimalServiceImplTest {
 
     @Test
     void getAnimalsFromJson(){
-        InputStream inputStream = getClass().getClassLoader().getResourceAsStream("animals-test.json");
-        List<Map<String, String>> result = animalService.getAnimalsFromJson(inputStream);
+        List<Map<String, String>> result = animalService.getAnimalsFromSource("animals-test.json");
         assertNotNull(result);
         assertEquals(3,result.size());
 

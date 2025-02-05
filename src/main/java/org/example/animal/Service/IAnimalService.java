@@ -9,6 +9,6 @@ import java.util.Map;
 
 public interface IAnimalService {
     Map<AnimalType, List<Animal>> processAnimals(List<Map<String,String>>animalInfo);
-    List<Map<String,String>> getAnimalsFromJson(InputStream inputStream);
+    List<Map<String,String>> getAnimalsFromSource(String input);
     void showGroupedAnimals(Map<AnimalType,List<Animal>>groupedAnimals);
 }
