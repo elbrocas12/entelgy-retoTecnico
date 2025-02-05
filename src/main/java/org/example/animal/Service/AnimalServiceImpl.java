@@ -2,11 +2,10 @@ package org.example.animal.Service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.core.type.TypeReference;
-import org.example.animal.Animal;
-import org.example.animal.AnimalType;
+import org.example.animal.domain.Animal;
+import org.example.animal.domain.AnimalType;
 import org.example.animal.factory.AnimalFactory;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 import java.util.Map;

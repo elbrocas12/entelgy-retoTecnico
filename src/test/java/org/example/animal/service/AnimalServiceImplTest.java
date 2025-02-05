@@ -1,7 +1,7 @@
 package org.example.animal.service;
 
-import org.example.animal.Animal;
-import org.example.animal.AnimalType;
+import org.example.animal.domain.Animal;
+import org.example.animal.domain.AnimalType;
 import org.example.animal.Service.AnimalServiceImpl;
 import org.example.animal.Service.IAnimalService;
 

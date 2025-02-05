@@ -1,7 +1,7 @@
 package org.example;
 
-import org.example.animal.Animal;
-import org.example.animal.AnimalType;
+import org.example.animal.domain.Animal;
+import org.example.animal.domain.AnimalType;
 import org.example.animal.Service.IAnimalService;
 import org.example.config.AppConfig;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;

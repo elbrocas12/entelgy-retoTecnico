@@ -1,7 +1,7 @@
 package org.example.animal.Service;
 
-import org.example.animal.Animal;
-import org.example.animal.AnimalType;
+import org.example.animal.domain.Animal;
+import org.example.animal.domain.AnimalType;
 
 import java.io.InputStream;
 import java.util.List;

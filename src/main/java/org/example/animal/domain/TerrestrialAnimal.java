@@ -1,4 +1,4 @@
-package org.example.animal;
+package org.example.animal.domain;
 
 public class TerrestrialAnimal extends Animal{
     public TerrestrialAnimal(String onomatopoeia, String species) {

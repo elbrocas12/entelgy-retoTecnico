@@ -1,6 +1,6 @@
 package org.example.animal.factory;
 
-import org.example.animal.*;
+import org.example.animal.domain.*;
 
 public class AnimalFactory {
     public static Animal createAnimal(String species, AnimalType type, String onomatopoeia){
