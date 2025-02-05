@@ -6,8 +6,4 @@ public class TerrestrialAnimal extends Animal{
     }
 
 
-    @Override
-    public String getType() {
-        return "Animal Terrestre";
-    }
 }

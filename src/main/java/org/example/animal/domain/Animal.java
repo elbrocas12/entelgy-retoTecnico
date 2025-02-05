@@ -10,7 +10,6 @@ public abstract class Animal {
         this.species=species;
     }
 
-    public abstract String getType();
 
     public void makeSound(){
         System.out.println(onomatopoeia);
