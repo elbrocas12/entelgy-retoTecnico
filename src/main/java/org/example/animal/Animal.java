@@ -1,32 +1,24 @@
 package org.example.animal;
 
 public abstract class Animal {
-    private String name;
     private AnimalType type;
     private String onomatopoeia;
     private Species species;
-    public Animal(String name,String onomatopoeia, AnimalType animalType, Species species){
-        this.name=name;
+    public Animal(String onomatopoeia, AnimalType animalType, Species species){
         this.onomatopoeia=onomatopoeia;
         this.type=animalType;
         this.species=species;
     }
 
-    public AnimalType getAnimalType(){
-        return type;
-    }
+    public abstract String getType();
 
-    public abstract void makeSound();
+    public void makeSound(){
+        System.out.println(onomatopoeia);
+    };
 
-    public String getName(){
-        return name;
-    }
 
     public Species getSpecies(){
         return species;
     }
 
-    public String getOnomatopoeia(){
-        return onomatopoeia;
-    }
 }
