@@ -1,12 +1,18 @@
 package org.example.animal.service;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.example.animal.domain.Animal;
 import org.example.animal.domain.AnimalType;
 import org.example.animal.Service.AnimalServiceImpl;
 import org.example.animal.Service.IAnimalService;
 
+import org.example.config.AppConfig;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
 import java.io.InputStream;
 import java.util.List;
@@ -14,14 +20,15 @@ import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@ExtendWith(SpringExtension.class)
+@SpringJUnitConfig(AppConfig.class)
 public class AnimalServiceImplTest {
 
+
+
+    @Autowired
     private IAnimalService animalService;
 
-    @BeforeEach
-    void setUp(){
-        animalService = new AnimalServiceImpl();
-    }
 
     @Test
     void getAnimalsFromJson(){
