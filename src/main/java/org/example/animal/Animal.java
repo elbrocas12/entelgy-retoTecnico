@@ -3,8 +3,8 @@ package org.example.animal;
 public abstract class Animal {
     private AnimalType type;
     private String onomatopoeia;
-    private Species species;
-    public Animal(String onomatopoeia, AnimalType animalType, Species species){
+    private String species;
+    public Animal(String onomatopoeia, AnimalType animalType, String species){
         this.onomatopoeia=onomatopoeia;
         this.type=animalType;
         this.species=species;
@@ -17,7 +17,7 @@ public abstract class Animal {
     };
 
 
-    public Species getSpecies(){
+    public String getSpecies(){
         return species;
     }
 
