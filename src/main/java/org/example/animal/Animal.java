@@ -14,4 +14,6 @@ public abstract class Animal {
     public AnimalType getAnimalType(){
         return type;
     }
+
+    public abstract void makeSound();
 }
