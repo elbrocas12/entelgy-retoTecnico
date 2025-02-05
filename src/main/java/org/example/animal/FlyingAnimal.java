@@ -1,0 +1,11 @@
+package org.example.animal;
+
+public class FlyingAnimal extends Animal{
+    public FlyingAnimal(String name, String onomatopoeia, Species species) {
+        super( onomatopoeia, AnimalType.VOLADOR, species);
+    }
+    @Override
+    public String getType() {
+        return "Animal Volador";
+    }
+}
