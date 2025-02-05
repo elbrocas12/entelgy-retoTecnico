@@ -1,5 +1,7 @@
 package org.example.animal.service;
 
+import org.example.animal.Animal;
+import org.example.animal.AnimalType;
 import org.example.animal.Service.AnimalServiceImpl;
 import org.example.animal.Service.IAnimalService;
 
@@ -39,5 +41,22 @@ public class AnimalServiceImplTest {
         assertEquals("Halcón", result.get(2).get("species"));
         assertEquals("VOLADOR", result.get(2).get("type"));
         assertEquals("Screech", result.get(2).get("onomatopoeia"));
+    }
+
+    @Test
+    void testProcessAnimals(){
+        List<Map<String,String>> animalInfo=List.of(
+                Map.of("species", "Perro", "type", "TERRESTRE", "onomatopoeia", "Guau Guau"),
+                Map.of("species", "Pez Payaso", "type", "ACUATICO", "onomatopoeia", "Blub Blub"),
+                Map.of("species", "Canario", "type", "VOLADOR", "onomatopoeia", "Pío Pío")
+        );
+        Map<AnimalType, List<Animal>> result = animalService.processAnimals(animalInfo);
+        assertTrue(result.containsKey(AnimalType.TERRESTRE));
+        assertTrue(result.containsKey(AnimalType.ACUATICO));
+        assertTrue(result.containsKey(AnimalType.VOLADOR));
+
+        assertEquals(1, result.get(AnimalType.TERRESTRE).size());
+        assertEquals(1, result.get(AnimalType.ACUATICO).size());
+        assertEquals(1, result.get(AnimalType.VOLADOR).size());
     }
 }
