@@ -16,6 +16,9 @@ public abstract class Animal {
         System.out.println(onomatopoeia);
     };
 
+    public AnimalType getAnimalType(){
+        return type;
+    }
 
     public String getSpecies(){
         return species;
