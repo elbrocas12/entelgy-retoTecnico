@@ -7,6 +7,7 @@ import org.example.animal.domain.AnimalType;
 import org.example.animal.factory.AnimalFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.io.InputStream;
 import java.util.List;
@@ -14,6 +15,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class AnimalServiceImpl implements IAnimalService{
+
 
     private final IAnimalReader animalReader;
     @Autowired
@@ -32,8 +34,6 @@ public class AnimalServiceImpl implements IAnimalService{
         Map<AnimalType, List<Animal>> groupedAnimals = animals.stream()
                 .collect(Collectors.groupingBy(Animal::getAnimalType));
         return groupedAnimals;
-
-
 
     }
 
