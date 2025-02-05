@@ -5,9 +5,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import org.example.animal.Animal;
 import org.example.animal.AnimalType;
 import org.example.animal.factory.AnimalFactory;
-import org.springframework.stereotype.Service;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
@@ -18,32 +16,45 @@ public class AnimalServiceImpl implements IAnimalService{
 
 
     @Override
-    public void processAnimals(InputStream inputStream) {
+    public Map<AnimalType, List<Animal>> processAnimals(List<Map<String, String>> animalInfo) {
+        List<Animal> animals = animalInfo.stream()
+                .map(data -> AnimalFactory.createAnimal(
+                        data.get("species"),
+                        AnimalType.valueOf(data.get("type")),
+                        data.get("onomatopoeia")
+                ))
+                .toList();
+        Map<AnimalType, List<Animal>> groupedAnimals = animals.stream()
+                .collect(Collectors.groupingBy(Animal::getAnimalType));
+        return groupedAnimals;
+
+
+
+    }
+
+    @Override
+    public List<Map<String, String>> getAnimalsFromJson(InputStream inputStream) {
         ObjectMapper objectMapper=new ObjectMapper();
         try{
             List<Map<String,String>>animalInfo=objectMapper.readValue(
                     inputStream,
                     new TypeReference<>() {});
-            List<Animal> animals = animalInfo.stream()
-                    .map(data -> AnimalFactory.createAnimal(
-                            data.get("species"),
-                            AnimalType.valueOf(data.get("type")),
-                            data.get("onomatopoeia")
-                    ))
-                    .toList();
-            Map<AnimalType, List<Animal>> groupedAnimals = animals.stream()
-                    .collect(Collectors.groupingBy(Animal::getAnimalType));
-            groupedAnimals.forEach((type, animalList) -> {
-                System.out.println("\n🔹 Animales " + type + ":");
-                animalList.forEach(animal -> {
-                    System.out.println(" - " + animal.getSpecies() + " hace: ");
-                    animal.makeSound();
-                });
-            });
-        }catch(IOException e) {
+            return animalInfo;
+        } catch (Exception e) {
             System.err.println("Error al leer el archivo JSON: " + e.getMessage());
         }
+        return List.of();
+    }
 
+    @Override
+    public void showGroupedAnimals(Map<AnimalType,List<Animal>>groupedAnimals) {
+        groupedAnimals.forEach((type, animalList) -> {
+            System.out.println("\n🔹 Animales " + type + ":");
+            animalList.forEach(animal -> {
+                System.out.println(" - " + animal.getSpecies() + " hace: ");
+                animal.makeSound();
+            });
+        });
     }
 
 }
