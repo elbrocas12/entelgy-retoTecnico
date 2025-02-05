@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -17,11 +18,11 @@ public class AnimalServiceImpl implements IAnimalService{
 
 
     @Override
-    public void processAnimals(String filePath) {
+    public void processAnimals(InputStream inputStream) {
         ObjectMapper objectMapper=new ObjectMapper();
         try{
             List<Map<String,String>>animalInfo=objectMapper.readValue(
-                    new File(filePath),
+                    inputStream,
                     new TypeReference<>() {});
             List<Animal> animals = animalInfo.stream()
                     .map(data -> AnimalFactory.createAnimal(
