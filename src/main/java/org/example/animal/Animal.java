@@ -17,4 +17,16 @@ public abstract class Animal {
     }
 
     public abstract void makeSound();
+
+    public String getName(){
+        return name;
+    }
+
+    public Species getSpecies(){
+        return species;
+    }
+
+    public String getOnomatopoeia(){
+        return onomatopoeia;
+    }
 }
