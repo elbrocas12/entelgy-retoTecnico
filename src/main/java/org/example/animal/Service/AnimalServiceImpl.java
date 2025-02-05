@@ -49,7 +49,7 @@ public class AnimalServiceImpl implements IAnimalService{
     @Override
     public void showGroupedAnimals(Map<AnimalType,List<Animal>>groupedAnimals) {
         groupedAnimals.forEach((type, animalList) -> {
-            System.out.println("\n🔹 Animales " + type + ":");
+            System.out.println("\n Animales " + type + ":");
             animalList.forEach(animal -> {
                 System.out.println(" - " + animal.getSpecies() + " hace: ");
                 animal.makeSound();
