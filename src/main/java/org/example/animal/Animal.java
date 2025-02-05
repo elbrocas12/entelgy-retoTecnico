@@ -4,11 +4,12 @@ public abstract class Animal {
     private String name;
     private AnimalType type;
     private String onomatopoeia;
-
-    public Animal(String name,String onomatopoeia, AnimalType animalType){
+    private Species species;
+    public Animal(String name,String onomatopoeia, AnimalType animalType, Species species){
         this.name=name;
         this.onomatopoeia=onomatopoeia;
         this.type=animalType;
+        this.species=species;
     }
 
     public AnimalType getAnimalType(){

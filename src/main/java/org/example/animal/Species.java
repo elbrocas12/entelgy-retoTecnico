@@ -4,19 +4,21 @@ package org.example.animal;
 public enum Species {
     PERRO,
     GATO,
-    ELEFANTE,
-    TIGRE,
-    CABALLO,
+    VACA,
+    OVEJA,
+    CERDO,
 
-    TIBURON,
+
     DELFIN,
-    PULPO,
+    FOCA,
+    RANA,
     BALLENA,
-    PEZ_PAYASO,
+    PEZ,
 
-    AGUILA,
-    HALCON,
+
+    GALLO,
     LORO,
-    MURCIELAGO,
-    BUHO;
+    BÚHO,
+    CUERVO,
+    PATO;
 }
