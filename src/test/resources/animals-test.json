@@ -1,0 +1,5 @@
+[
+  { "species": "León", "type": "TERRESTRE", "onomatopoeia": "Rugido" },
+  { "species": "Tiburón", "type": "ACUATICO", "onomatopoeia": "Splash" },
+  { "species": "Halcón", "type": "VOLADOR", "onomatopoeia": "Screech" }
+]

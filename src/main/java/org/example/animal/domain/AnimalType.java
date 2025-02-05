@@ -1,4 +1,4 @@
-package org.example.animal;
+package org.example.animal.domain;
 
 public enum AnimalType {
     TERRESTRE,

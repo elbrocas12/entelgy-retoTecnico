@@ -1,0 +1,32 @@
+[
+  {
+    "species": "Perro",
+    "type": "TERRESTRE",
+    "onomatopoeia": "Guau Guau"
+  },
+  {
+    "species": "Gato",
+    "type": "TERRESTRE",
+    "onomatopoeia": "Miau"
+  },
+  {
+    "species": "Pez Payaso",
+    "type": "ACUATICO",
+    "onomatopoeia": "Blub Blub"
+  },
+  {
+    "species": "Delfín",
+    "type": "ACUATICO",
+    "onomatopoeia": "Cli Cli"
+  },
+  {
+    "species": "Canario",
+    "type": "VOLADOR",
+    "onomatopoeia": "Pío Pío"
+  },
+  {
+    "species": "Águila",
+    "type": "VOLADOR",
+    "onomatopoeia": "Screech"
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "species": "Tyrannosaurus Rex",
+    "type": "TERRESTRE",
+    "onomatopoeia": "Rugido fuerte"
+  },
+  {
+    "species": "Triceratops",
+    "type": "TERRESTRE",
+    "onomatopoeia": "Grunido pesado"
+  },
+  {
+    "species": "Mosasaurus",
+    "type": "ACUATICO",
+    "onomatopoeia": "Chasquido de agua"
+  },
+  {
+    "species": "Plesiosaurus",
+    "type": "ACUATICO",
+    "onomatopoeia": "Sonido profundo"
+  },
+  {
+    "species": "Pteranodon",
+    "type": "VOLADOR",
+    "onomatopoeia": "Aullido agudo"
+  },
+  {
+    "species": "Archaeopteryx",
+    "type": "VOLADOR",
+    "onomatopoeia": "Chirp suave"
+  }
+]
