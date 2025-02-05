@@ -15,7 +15,7 @@ public class AppConfig {
         return new ObjectMapper();
     }
     @Bean
-    public IAnimalService animalService(){
-        return new AnimalServiceImpl();
+    public IAnimalService animalService(ObjectMapper objectMapper){
+        return new AnimalServiceImpl(objectMapper);
     }
 }

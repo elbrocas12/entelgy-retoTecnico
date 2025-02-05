@@ -5,6 +5,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import org.example.animal.domain.Animal;
 import org.example.animal.domain.AnimalType;
 import org.example.animal.factory.AnimalFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.InputStream;
 import java.util.List;
@@ -13,7 +14,11 @@ import java.util.stream.Collectors;
 
 public class AnimalServiceImpl implements IAnimalService{
 
-
+    private final ObjectMapper objectMapper;
+    @Autowired
+    public AnimalServiceImpl(ObjectMapper objectMapper) {
+        this.objectMapper = objectMapper;
+    }
     @Override
     public Map<AnimalType, List<Animal>> processAnimals(List<Map<String, String>> animalInfo) {
         List<Animal> animals = animalInfo.stream()
@@ -33,7 +38,6 @@ public class AnimalServiceImpl implements IAnimalService{
 
     @Override
     public List<Map<String, String>> getAnimalsFromJson(InputStream inputStream) {
-        ObjectMapper objectMapper=new ObjectMapper();
         try{
             List<Map<String,String>>animalInfo=objectMapper.readValue(
                     inputStream,
